@@ -1,12 +1,10 @@
 <template>
   <div class="overlay">
-    <onClickOutside @trigger="$emit('close-modal')">
     <div class="modal">
         <textarea v-model="newToDo" placeholder="Add your TODO"></textarea>
         <button @click="$emit('add-to-do', newToDo)">Add TODO</button>
         <button class="close" @click="$emit('close-modal')">Cancel</button>
     </div>
-    </onClickOutside>
   </div>
 </template>
 

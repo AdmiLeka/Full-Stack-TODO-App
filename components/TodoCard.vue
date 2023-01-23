@@ -1,16 +1,17 @@
-<script setup>
-import { defineProps } from 'vue';
-
-const props = defineProps(['todo']);
-</script>
-
 <template>
   <div class="todo-card">
-    <p class="date">TODO:</p>
+    <div class="header">
+      <p>TODO:</p>
+      <p>X</p>
+    </div>
     <p>{{ props.todo.text }}</p>
     <p class="date">{{ props.todo.date }}</p>
   </div>
 </template>
+
+<script setup>
+  const props = defineProps(['todo']);
+</script>
 
 <style scoped>
     .todo-container {
@@ -19,6 +20,7 @@ const props = defineProps(['todo']);
 
 
     .todo-card {
+      font-family: Arial, Helvetica, sans-serif;
       cursor: pointer;
       background-color: black;
       width: 250px;
@@ -34,9 +36,15 @@ const props = defineProps(['todo']);
     }
     .todo-card p {
       color: white;
+      white-space: pre-wrap;
     }
     .todo-card .date{
       font-weight: bold;
       margin: 0;
     }
+    .todo-card .header{
+      display: flex;
+      justify-content: space-between;
+    }
+
 </style>

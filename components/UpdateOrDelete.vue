@@ -1,27 +1,23 @@
 <template>
   <div class="overlay">
-    <OnClickOutside @trigger="emits('close-modal')">
       <div class="modal">
-    <textarea v-model="editedTodo"></textarea>
-      <button @click="updateTodo(editedTodo)">Update</button>
-      <button class="delete" @click="emits('delete-todo')">Delete</button>
-      <button class="close" @click="emits('close-modal')">Cancel</button>
+        <textarea v-model="editedTodo"></textarea>
+        <button @click="updateTodo(editedTodo)">Update</button>
+        <button class="delete" @click="emits('delete-todo')">Delete</button>
+        <button class="close" @click="emits('close-modal')">Cancel</button>
+      </div>  
   </div>
-    </OnClickOutside>
-  
-</div>
 </template>
-
 
 <script setup>
   
   const props = defineProps(['todoItem']);
-  const editedTodo = props.todoItem.value.text;
+  const editedTodo = props.todoItem.text;
 
   const emits = defineEmits(['close-modal', 'delete-todo']);
 
   function updateTodo(edit) {
-    props.todoItem.value.text = edit;
+    props.todoItem.text = edit;
     emits('close-modal')
   }
 
