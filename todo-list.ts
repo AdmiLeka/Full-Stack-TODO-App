@@ -1,5 +1,11 @@
 import axios from "axios";
 
+export interface Todo {
+  id: number;
+  text: string;
+  created: string;
+  completed: boolean;
+}
 
 export async function fetchTodos() {
   const api = "http://localhost:5000/todos";
@@ -8,7 +14,4 @@ export async function fetchTodos() {
   })
   return {todos}
 }
-
-let hehe = await fetchTodos()
-console.log(hehe)
 

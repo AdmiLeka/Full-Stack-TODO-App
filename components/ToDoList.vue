@@ -1,9 +1,12 @@
 <template>
     <div>
         <Transition>
+            <OnClickOutside @trigger="newToDoModal = !newToDoModal">
             <NewTodo v-if="newToDoModal"
+            
              @add-to-do="createTodo"
             @close-modal="newToDoModal = !newToDoModal"/>
+        </OnClickOutside>
         </Transition>
         <Transition>
             <UpdateOrDelete v-if="editModal"
@@ -32,11 +35,10 @@
   
 <script setup lang="ts">
     import axios from 'axios';
-    import { fetchTodos } from '~~/todo-list';
+    import { fetchTodos, Todo } from '~~/todo-list';
+    import { OnClickOutside } from '@vueuse/components';
 
     var todoList = reactive(await fetchTodos());
-    console.log(todoList.todos);
-
 
     const newToDoModal = ref(false);
     const editModal = ref(false);
@@ -52,7 +54,7 @@
     newToDoModal.value = !newToDoModal.value;
     }
 
-    function deleteTodo(todo) {
+    function deleteTodo(todo: Todo) {
         axios.delete(`http://localhost:5000/todos/delete/${todo.id}`);
         todoList = fetchTodos()
         editModal.value = !editModal.value;
@@ -64,6 +66,12 @@
 </script>
 
 <style scoped>
+
+@media (max-width: 615px) {
+  .todo-container{
+    justify-content: space-evenly !important;
+  }
+}
 .v-enter-active {
 transition: opacity 0.3s ease;
 }
@@ -85,6 +93,7 @@ opacity: 0;
 .todo-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   }
   header h1 {
     font-family: Arial, Helvetica, sans-serif;
