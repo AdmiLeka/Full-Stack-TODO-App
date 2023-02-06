@@ -26,7 +26,7 @@
         :key="todo.id" :todo="todo"/>
     </div>
     <div v-else>
-        You currently have no todos. To add a todo, press the plus button.
+        You currently have no todos. To add a ToDo, press the plus button.
     </div>
     </div>
 </template>
