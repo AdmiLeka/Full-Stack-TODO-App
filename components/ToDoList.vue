@@ -1,7 +1,8 @@
 <template>
     <div>
         <Transition>
-            <NewTodo v-if="newToDoModal" @add-to-do="addTodo"
+            <NewTodo v-if="newToDoModal"
+             @add-to-do="createTodo"
             @close-modal="newToDoModal = !newToDoModal"/>
         </Transition>
         <Transition>
@@ -18,7 +19,7 @@
     <AddTodoBtn @click="newToDoModal = true"/>
     <div class="todo-container" v-if="hasTodos()">
         <TodoCard @click="toggleEditModal(todo)"
-        v-for="todo in todoList"
+        v-for="todo in todoList.todos"
         :key="todo.id" :todo="todo"/>
     </div>
     <div v-else>
@@ -30,8 +31,13 @@
 
   
 <script setup lang="ts">
+    import axios from 'axios';
+    import { fetchTodos } from '~~/todo-list';
 
-    import {todoList} from "@/todo-list";
+    var todoList = reactive(await fetchTodos());
+    console.log(todoList.todos);
+
+
     const newToDoModal = ref(false);
     const editModal = ref(false);
     const selectedTodoItem = ref({});
@@ -41,21 +47,19 @@
     editModal.value = !editModal.value;
     }
 
-    function addTodo(todoText: string) {
-    todoList.push({
-        id: Math.floor(Math.random() * 100000),
-        text: todoText,
-        date: new Date().toLocaleDateString('de-DE')
-    })
+    function createTodo(todo: string) {
+        axios.post(`http://localhost:5000/todos/`, [todo, false])
     newToDoModal.value = !newToDoModal.value;
     }
 
     function deleteTodo(todo) {
-        delete todoList[todo];
+        axios.delete(`http://localhost:5000/todos/delete/${todo.id}`);
+        todoList = fetchTodos()
         editModal.value = !editModal.value;
     }
 
-    const hasTodos = () => todoList.length > 0;
+    const hasTodos = () => todoList.todos.length > 0;    
+    
 
 </script>
 
