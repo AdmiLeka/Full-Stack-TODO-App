@@ -23,7 +23,6 @@
       display: flex;
     }
 
-
     .todo-card {
       font-family: Arial, Helvetica, sans-serif;
       cursor: pointer;
@@ -37,11 +36,49 @@
       justify-content: space-between;
       margin-right: 20px;
       margin-bottom: 30px;
-
     }
+    .dark-mode .todo-card {
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      background-color: rgb(210, 210, 210);
+      width: 250px;
+      height: 250px;
+      padding: 10px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 20px;
+      margin-bottom: 30px;
+    }
+    .sepia-mode .todo-card {
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      background-color: #999999;
+      width: 250px;
+      height: 250px;
+      padding: 10px;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 20px;
+      margin-bottom: 30px;
+    }
+
     .todo-card p {
       margin: 0;
       color: white;
+      white-space: pre-wrap;
+    }
+    .dark-mode .todo-card p {
+      margin: 0;
+      color: black;
+      white-space: pre-wrap;
+    }
+    .sepia-mode .todo-card p {
+      margin: 0;
+      color: #433422;
       white-space: pre-wrap;
     }
     .todo-card .date{

@@ -21,4 +21,32 @@
         margin-bottom: 20px;
 
     }
+
+    .dark-mode button {
+        border: none;
+        padding: 10px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        background-color: rgb(210, 210, 210);
+        border-radius: 1000px;
+        color: black;
+        font-size: 20px;
+        margin-bottom: 20px;
+
+    }
+
+    .sepia-mode button {
+        border: none;
+        padding: 10px;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        background-color: #999999;
+        border-radius: 1000px;
+        color: #433422;;
+        font-size: 20px;
+        margin-bottom: 20px;
+
+    }
 </style>

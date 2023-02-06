@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
     modules: [
         '@vueuse/nuxt',
+        '@nuxtjs/color-mode'
       ],
 })
 
