@@ -22,6 +22,10 @@
 
     }
 
+    button:hover {
+      opacity: 90%;
+    }
+
     .dark-mode button {
         border: none;
         padding: 10px;

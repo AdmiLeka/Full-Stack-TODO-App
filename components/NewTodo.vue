@@ -2,18 +2,21 @@
   <div class="overlay">
     <div class="modal">
         <textarea v-model="newToDo" placeholder="Add your TODO"></textarea>
-        <button @click="$emit('add-to-do', newToDo)">Add TODO</button>
+        <button @click="createTodo(); emits('close-modal')">Add TODO</button>
         <button class="close" @click="$emit('close-modal')">Cancel</button>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+    import axios from 'axios';
 
-    const props = defineProps(['todoList', 'new-to-do']);
-    defineEmits(['add-to-do', 'close-modal']);
-
+    const emits = defineEmits(['close-modal']);
     const newToDo = ref("");
+
+    function createTodo() {
+        axios.post(`http://localhost:5000/todos/`, {"text":newToDo.value})
+      }
 
 </script>
 

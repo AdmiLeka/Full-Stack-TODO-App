@@ -25,6 +25,14 @@ export async function deleteTodo(id) {
     return result[0];
 }
 
+export async function markTodoDone(boolean, id) {
+    const [result] = await pool.query(`
+    UPDATE todos
+    SET completed = ?
+    WHERE id = ?`, [boolean, id]);
+    return result[0];
+}
+
 export async function createTodo(text, completed) {
     const [result] = await pool.query(`
     INSERT INTO todos (text, completed)

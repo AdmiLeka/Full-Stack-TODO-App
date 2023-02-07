@@ -3,8 +3,6 @@
         <Transition>
             <!-- <OnClickOutside @trigger="newToDoModal = !newToDoModal"> -->
             <NewTodo v-if="newToDoModal"
-            
-             @add-to-do="createTodo"
             @close-modal="newToDoModal = !newToDoModal"/>
         <!-- </OnClickOutside> -->
         </Transition>
@@ -49,14 +47,8 @@
     editModal.value = !editModal.value;
     }
 
-    function createTodo(todo: string) {
-        axios.post(`http://localhost:5000/todos/`, [todo, false])
-    newToDoModal.value = !newToDoModal.value;
-    }
-
     function deleteTodo(todo: Todo) {
         axios.delete(`http://localhost:5000/todos/delete/${todo.id}`);
-        todoList = fetchTodos()
         editModal.value = !editModal.value;
     }
 

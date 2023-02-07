@@ -2,7 +2,6 @@
   <main>
     <div>
     <h1>Color mode: {{ $colorMode.value }}</h1>
-    <TheHeader/>
     <select v-model="$colorMode.preference">
       <option value="system">System</option>
       <option value="light">Light</option>

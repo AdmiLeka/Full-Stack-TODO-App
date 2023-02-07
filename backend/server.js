@@ -18,8 +18,7 @@ app.delete('/todos/delete/:id', (req,res) => {
 })
 
 app.post('/todos', (req, res) => {
-    console.log(req.body.text)
-    const todo = createTodo(req.body.text, req.body.completed)
+    const todo = createTodo(req.body.text, 0) // Adding a new todo will have a default value of 0 (or "Pending")
     res.status(201).json(todo)
 })
 
