@@ -1,4 +1,5 @@
 <template>
+  <Nav/>
     <div>
         <Transition>
             <!-- <OnClickOutside @trigger="newToDoModal = !newToDoModal"> -->
