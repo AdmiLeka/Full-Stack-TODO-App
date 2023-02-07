@@ -3,13 +3,17 @@
     <div>
       <Nav/>
   </div>
-    <div class="container">
-    <ToDoList/>
+  <div class="container">
+    <h1>Welcome to ToDo manger</h1>
+    <a href="/todos">View your todos</a>
   </div>
   </main>
 </template>
 
-<style>
-  
+<style scoped>
+  .container {
+    text-align: center;
+    margin-top: 5rem;
+  }
 
 </style>

@@ -33,8 +33,7 @@
 
 <script setup lang="ts">
 
-const colorMode = useColorMode()
-console.log(colorMode.preference, colorMode.value)
+    const colorMode = useColorMode()
 
 </script>
 
@@ -73,6 +72,24 @@ console.log(colorMode.preference, colorMode.value)
     height: 100%;
     align-items: center;
     justify-content: center;
+  }
+
+  .sepia-mode .navbar-dark {
+    background-color: #b5ae9e !important;
+
+  }
+
+  .sepia-mode .navbar-dark a{
+    color: #433422 !important;
+  }
+
+  .light-mode .navbar-dark {
+    background-color: #a8a8a8 !important;
+
+  }
+
+  .light-mode .navbar-dark a{
+    color: #433422 !important;
   }
   
     ul[data-v-77c95cbd]{
