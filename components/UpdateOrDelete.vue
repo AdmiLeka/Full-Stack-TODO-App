@@ -1,15 +1,18 @@
 <template>
   <div class="overlays">
+    <OnClickOutside @trigger="emits('close-modal')">
       <div class="modale">
         <textarea v-model="editedTodo"></textarea>
         <button @click="updateTodo(editedTodo)">Update</button>
         <button class="delete" @click="emits('delete-todo')">Delete</button>
         <button class="close" @click="emits('close-modal')">Cancel</button>
-      </div>  
+      </div>
+    </OnClickOutside>
   </div>
 </template>
 
 <script setup>
+  import { OnClickOutside } from '@vueuse/components';
   
   const props = defineProps(['todoItem']);
   const editedTodo = props.todoItem.text;

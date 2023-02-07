@@ -1,15 +1,18 @@
 <template>
   <div class="overlays">
-    <div class="modale">
-        <textarea v-model="newToDo" placeholder="Add your TODO"></textarea>
-        <button @click="createTodo(); emits('close-modal')">Add TODO</button>
-        <button class="close" @click="$emit('close-modal')">Cancel</button>
-    </div>
+    <OnClickOutside @trigger="emits('close-modal')">
+      <div class="modale">
+          <textarea v-model="newToDo" placeholder="Add your TODO"></textarea>
+          <button @click="createTodo(); emits('close-modal')">Add TODO</button>
+          <button class="close" @click="$emit('close-modal')">Cancel</button>
+      </div>
+    </OnClickOutside>
   </div>
 </template>
 
 <script setup lang="ts">
     import axios from 'axios';
+    import { OnClickOutside } from '@vueuse/components';
 
     const emits = defineEmits(['close-modal']);
     const newToDo = ref("");

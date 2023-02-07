@@ -1,12 +1,12 @@
 <template>
   <Nav/>
     <div>
+      
         <Transition>
-            <!-- <OnClickOutside @trigger="newToDoModal = !newToDoModal"> -->
             <NewTodo v-if="newToDoModal"
             @close-modal="newToDoModal = !newToDoModal"/>
-        <!-- </OnClickOutside> -->
         </Transition>
+      
         <Transition>
             <UpdateOrDelete v-if="editModal"
             :todo-item="selectedTodoItem"
