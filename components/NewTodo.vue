@@ -1,6 +1,6 @@
 <template>
-  <div class="overlay">
-    <div class="modal">
+  <div class="overlays">
+    <div class="modale">
         <textarea v-model="newToDo" placeholder="Add your TODO"></textarea>
         <button @click="createTodo(); emits('close-modal')">Add TODO</button>
         <button class="close" @click="$emit('close-modal')">Cancel</button>
@@ -21,7 +21,7 @@
 </script>
 
 <style scoped>
-.modal button {
+.modale button {
     padding: 10px 20px;
     font-size: 20px;
     width: 100%;
@@ -32,10 +32,10 @@
     margin-top: 15px;
   }
 
-  .modal .close {
+  .modale .close {
     background-color: grey;
   }
-  .modal {
+  .modale {
     width: 750px;
     background-color: white;
     border-radius: 10px;
@@ -45,7 +45,7 @@
     flex-direction: column;
   }
 
-  .overlay {
+  .overlays {
     position: fixed;
     width: 100%;
     height: 100%;

@@ -25,11 +25,11 @@ export async function deleteTodo(id) {
     return result[0];
 }
 
-export async function markTodoDone(boolean, id) {
+export async function changeTodoStatus(id) {
     const [result] = await pool.query(`
     UPDATE todos
-    SET completed = ?
-    WHERE id = ?`, [boolean, id]);
+    SET completed = not completed
+    WHERE id = ?`, [id]);
     return result[0];
 }
 

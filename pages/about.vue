@@ -6,7 +6,7 @@
         <h1>
             This ToDo manager was made with Nuxt 3
         </h1>
-        <a href="/">Back to main screen</a>
+        <NuxtLink to="/">Back to main screen</NuxtLink>
     </div>
 </template>
 

@@ -1,7 +1,9 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">ToDo Manager</a>
+    <NuxtLink to="/" class="nav-link navbar-brand" activeClass="active">
+            ToDo Manager
+          </NuxtLink>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
         <li @click="colorMode.preference = 'system'" class="" data-v-77c95cbd="" value="system">
@@ -19,11 +21,14 @@
             <li @click="colorMode.preference = 'sepia'" class="" data-v-77c95cbd="" value="sepia">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-coffee" data-v-77c95cbd=""><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>            </li>
         <li class="nav-item">
-            
-          <a class="nav-link active" aria-current="page" href="/todos">My Todos</a>
+          <NuxtLink to="/todos" class="nav-link" activeClass="active">
+            My ToDos
+          </NuxtLink>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
+          <NuxtLink to="/about" class="nav-link" activeClass="active">
+            About
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -60,18 +65,12 @@
 
   .dark-mode .container{
     background-color: #141414;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+
   }
   
   .sepia-mode .container{
     background-color: #f1e7d0;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+
   }
 
   .sepia-mode .navbar-dark {
@@ -83,6 +82,15 @@
     color: #433422 !important;
   }
 
+  .dark-mode .navbar-dark {
+    background-color: black !important;
+
+  }
+
+  .dark-mode .navbar-dark a{
+    color: white !important;
+  }
+
   .light-mode .navbar-dark {
     background-color: #a8a8a8 !important;
 
@@ -90,6 +98,10 @@
 
   .light-mode .navbar-dark a{
     color: #433422 !important;
+  }
+
+  .active {
+    font-weight: bold;
   }
   
     ul[data-v-77c95cbd]{
@@ -104,7 +116,7 @@
                 background-color:var(--bg-secondary);border:2px solid var(--border-color);border-radius:5px;cursor:pointer;margin:0;padding:7px;position:relative;top:0;transition:all .1s ease
             }
             .feather[data-v-77c95cbd]:hover{
-                top:-3px
+                top:-5px
             }
             .preferred .feather[data-v-77c95cbd]{
                 border-color:var(--color-primary);top:-3px

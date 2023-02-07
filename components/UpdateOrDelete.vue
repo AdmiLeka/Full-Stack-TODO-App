@@ -1,6 +1,6 @@
 <template>
-  <div class="overlay">
-      <div class="modal">
+  <div class="overlays">
+      <div class="modale">
         <textarea v-model="editedTodo"></textarea>
         <button @click="updateTodo(editedTodo)">Update</button>
         <button class="delete" @click="emits('delete-todo')">Delete</button>
@@ -26,7 +26,7 @@
 
 <style scoped>
 
-  .modal button {
+  .modale button {
     padding: 10px 20px;
     font-size: 20px;
     width: 100%;
@@ -37,7 +37,7 @@
     margin-top: 15px;
   }
 
-  .overlay {
+  .overlays {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -49,13 +49,13 @@
     justify-content: center;
     z-index: 10;
     }
-  .modal .delete {
+  .modale .delete {
     background-color: red;
   }
-  .modal .close {
+  .modale .close {
     background-color: grey;
   }
-  .modal {
+  .modale {
     width: 750px;
     background-color: white;
     border-radius: 10px;

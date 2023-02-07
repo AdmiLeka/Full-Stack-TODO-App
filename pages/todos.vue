@@ -20,7 +20,7 @@
         </header>
     <AddTodoBtn @click="newToDoModal = true"/>
     <div class="todo-container" v-if="hasTodos()">
-        <TodoCard @click="toggleEditModal(todo)"
+        <TodoCard @edit-todo="toggleEditModal(todo)"
         v-for="todo in todoList.todos"
         :key="todo.id" :todo="todo"/>
     </div>
